@@ -1,0 +1,33 @@
+# Base net: vgg16, res50, res101, res152
+BASE_NETWORK: vgg16
+# Pretrained models
+PRETRAINED_MODELS: pretrained_models/vgg_16.ckpt
+# img_h, img_w, img_c
+IMG_SIZE: [224, 224, 3]
+# BGR pixel mean value
+PIXEL_MEAN: [103.939, 116.779, 123.68]
+# class number
+NUM_CLASSES: 2
+# background label index
+BKG_LABEL: 0
+# weight of each label
+CLASS_WEIGHTS: 1
+# Summary dir
+SUMMARY_DIR: summary
+# Model
+MODEL_DIR_PREFIX: ckpt
+MODEL_NAME: model
+
+TRAIN:
+  LEARNING_RATE: 0.001
+  DECAY_RATE: 0.95
+  NUM_EPOCH: 20
+  BETA: 0.001
+  BATCH_SIZE: 64
+  NEG_HARD_MINING: 1.
+  POS_HARD_MINING: 1.
+TEST:
+  BATCH_SIZE: 8
+
+
+
