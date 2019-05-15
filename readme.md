@@ -1,9 +1,7 @@
 
 ## Exposing DeepFake Videos By Detecting Face Warping Artifacts
-Yuezun Li and Siwei Lyu 
-
-University at Albany, State University of New York, USA
-
+Yuezun Li and Siwei Lyu <br/>
+University at Albany, State University of New York, USA <br/>
 (https://arxiv.org/abs/1811.00656)
 
 ### Contents
@@ -83,6 +81,9 @@ Please cite our paper in your publications if it helps your research:
       booktitle={IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
       year={2019}
     }
+    
+#### Notice
+This repository is NOT for commecial use. It is provided "as it is" and we are not responsible for any subsequence of using this code.
 
 
 
