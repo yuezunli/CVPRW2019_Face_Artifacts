@@ -253,7 +253,10 @@ def get_aligned_face_and_landmarks(im, face_cache, aligned_face_size = 256, padd
         # Mapping landmarks to aligned face
         pred_ = np.concatenate([points, np.ones((points.shape[0], 1))], axis=-1)
         pred_ = np.transpose(pred_)
-        aligned_pred = np.dot(mat * aligned_face_size, pred_)
+        mat = mat * aligned_face_size
+        mat[0, 2] += padding[0]
+        mat[1, 2] += padding[1]
+        aligned_pred = np.dot(mat, pred_)
         aligned_pred = np.transpose(aligned_pred[:2, :])
         aligned_cur_shapes.append(aligned_pred)
         aligned_cur_im.append(aligned_face)
