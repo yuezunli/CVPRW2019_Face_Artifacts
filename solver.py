@@ -6,7 +6,7 @@ https://arxiv.org/abs/1811.00656
 import tensorflow as tf
 import os
 import tensorflow.contrib.slim as slim
-
+pwd = os.path.dirname(__file__)
 
 class Solver(object):
 
@@ -27,7 +27,7 @@ class Solver(object):
         if not os.path.exists(self.summary_dir):
             os.makedirs(self.summary_dir)
 
-        self.model_dir = cfg.MODEL_DIR_PREFIX + '_' + cfg.BASE_NETWORK
+        self.model_dir = pwd + '/' + cfg.MODEL_DIR_PREFIX + '_' + cfg.BASE_NETWORK
         if not os.path.exists(self.model_dir):
             os.makedirs(self.model_dir)
         self.model_path = os.path.join(self.model_dir, cfg.MODEL_NAME)

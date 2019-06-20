@@ -12,14 +12,15 @@ import seaborn as sns
 
 
 # Draw line plot
-def draw2D(X, Y, order, xname, yname, params, xlim=None, ylim=None, rcparams=None, legend_loc=0):
-
+def draw2D(X, Y, order, xname, yname, params, xlim=None, ylim=None, rcparams=None):
     title = params['title']
     colors = params['colors']
     markers = params['markers']
     linewidth = params['linewidth']
     markersize = params['markersize']
     figsize = params['figsize']
+    legend_loc = params['legend_loc']
+    is_legend = params['is_legend']
 
     if rcparams is None:
         rcparams = {
@@ -48,7 +49,8 @@ def draw2D(X, Y, order, xname, yname, params, xlim=None, ylim=None, rcparams=Non
         plt.plot(X[i], Y[i], colors[i], label=type_name, linewidth=linewidth, markersize=markersize, marker=markers[i])
 
     plt.grid()
-    plt.legend(loc=legend_loc)
+    if is_legend:
+        plt.legend(loc=legend_loc)
     fig.canvas.draw()
     # grab the pixel buffer and dump it into a numpy array
     im = np.array(fig.canvas.renderer._renderer)[:, :, :-1]
