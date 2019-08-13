@@ -65,13 +65,15 @@ class ResoNet(object):
             self.loss()
 
     def loss(self):
-        # Negative hard mining
-        tmp1 = self.prob[:, 0] * tf.cast(1 - self.gt, dtype=tf.float32)
-        tmp1 = tf.to_float(tmp1 < self.neg_hard_mining) * tf.cast(1 - self.gt, dtype=tf.float32)
-        # Positive hard mining
-        tmp2 = self.prob[:, 1] * tf.cast(self.gt, dtype=tf.float32)
-        tmp2 = tf.to_float(tmp2 < self.pos_hard_mining) * tf.cast(self.gt, dtype=tf.float32)
-        self.weights = tmp1 + tmp2
+        # Optional for hard mining
+        # # Negative hard mining
+        # tmp1 = self.prob[:, 0] * tf.cast(1 - self.gt, dtype=tf.float32)
+        # tmp1 = tf.to_float(tmp1 < self.neg_hard_mining) * tf.cast(1 - self.gt, dtype=tf.float32)
+        # # Positive hard mining
+        # tmp2 = self.prob[:, 1] * tf.cast(self.gt, dtype=tf.float32)
+        # tmp2 = tf.to_float(tmp2 < self.pos_hard_mining) * tf.cast(self.gt, dtype=tf.float32)
+        # self.weights = tmp1 + tmp2
+        self.weights = 1
         tmp = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=self.gt, logits=self.logits)
         self.net_loss = tf.reduce_mean(tmp * self.weights)
         tf.losses.add_loss(self.net_loss)
