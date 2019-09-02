@@ -47,8 +47,7 @@ If there is no face existed in input data, 0 is returned.
         python demo.py --input_dir=folder/of/test_data
         
     
-### Train
-#### Data preparation
+### Train Data preparation
 Face images for training can be downloaded from the public dataset. I put several links here.
     
     http://web.mit.edu/emeyers/www/face_databases.html
@@ -60,17 +59,8 @@ Face images for training can be downloaded from the public dataset. I put severa
 The data download from these datset are positive samples. 
 Since we focus on the artifacts introduced in the inconsistency of resolution between face area and surrounding area,
 the negative samples do not have to be DeepFake generated images. Thus the negative samples for our training can 
-be easily created. Please check `data_proc_train.py` for more details.
+be easily created. Please check paper for more details.
 
-#### Run training
-After getting data, we perform training using following script. The network is trained from 
-the imageNet pretrained models which can be found in [tf slim models](https://github.com/tensorflow/models/tree/master/research/slim#Pretrained).
-
-    python train.py \
-    --cfg=cfgs/res50.yml \
-    --data_dir=head_data/ \  # Face images
-    --cache_path=landmarks.p \ # Landmarks of each face
-    --list=annos.p  # training and testing list
     
 ### Citation
 

@@ -14,4 +14,8 @@ run.log
 *.mp4
 lyu_videos
 gui/
+train.py
+test.py
+data_proc_test.py
+data_proc_train.py
 
