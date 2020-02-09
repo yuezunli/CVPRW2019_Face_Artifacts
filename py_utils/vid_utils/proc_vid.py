@@ -8,8 +8,8 @@ import cv2, os
 import numpy as np
 
 # We only use opencv3
-if not (cv2.__version__).startswith('3.'):
-    raise ValueError('Only opencv 3. is supported!')
+#if not (cv2.__version__).startswith('3.'):
+#    raise ValueError('Only opencv 3. is supported!')
 
 
 def crop_video(pathIn, pathOut, pos, size):
