@@ -38,7 +38,7 @@ Specifically, we first detect faces and then extract landmarks to compute the tr
     ```
 
 ### Usage
-1. The trained models can be download in [resolution-net-models](https://drive.google.com/open?id=1cIWm7asQAc1KuaI7TlEB4NZVPAzz_d4f). Unzip and put model files into 
+1. The trained models can be download in [resolution-net-models](https://1drv.ms/u/s!As4tun0sWfKsgdJFVA9qdnRmqKbfpg?e=4Hrvf6). Unzip and put model files into 
 folder `ckpt_NETNAME`.
 2. The testing data (images or videos) is put in folder `folder/of/test_data`. Then 
 run `demo.py` which will return a list that contains the "fake" probability of each input data. 
